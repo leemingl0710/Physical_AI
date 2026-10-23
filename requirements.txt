@@ -1,0 +1,20 @@
+# ===== 비전 AI 코어 =====
+# OpenCV: 웹캠 영상 캡처·이미지 처리. mediapipe가 contrib 버전을 함께 설치하므로
+#         opencv-python과 섞어 설치하지 말 것 (같은 cv2 모듈이 충돌함)
+opencv-contrib-python>=4.9
+# MediaPipe: 얼굴 검출 + 얼굴 랜드마크(고개 각도 계산용). 1.x부터는 Tasks API만 제공
+mediapipe>=0.10.14
+# numpy 2.x는 일부 mediapipe/dlib 빌드와 호환되지 않아 1.x로 고정
+numpy<2.0
+# face_recognition + dlib: 얼굴을 128차원 벡터로 변환해 등록된 사용자인지 식별
+face_recognition>=1.3.0
+dlib>=19.24
+# face_recognition_models가 pkg_resources를 쓰는데, setuptools 81부터 제거되므로 고정
+setuptools<81
+
+# ===== UI / 시스템 트레이 =====
+PyQt5>=5.15
+
+# ===== Windows 전용 OS 제어 (화면 잠금 등) =====
+# Windows에서만 설치됨. macOS 개발 중에는 자동으로 건너뜀
+pywin32>=306; sys_platform == "win32"
